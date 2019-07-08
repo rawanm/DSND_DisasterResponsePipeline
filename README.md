@@ -1,20 +1,32 @@
-# Data Scientist Nanodegree
-"Gain real-world data science experience with projects designed by industry experts. Build your portfolio and advance your data science career."
+# Disaster Response Pipeline Project
+> This project (Disaster Response Pipeline) is part of Udacity's Data Scientists Nanodegree Program. 
 
-[Udacity](https://www.udacity.com/course/data-scientist-nanodegree--nd025)
+### Introduction: 
+This project builds a Disaster Response Pipeline as a web app. Users can enter new message and the system will analyze the text and display the relevent message category. This project analyzes disaster data and uses data from [Figure Eight](https://www.figure-eight.com) to build machine learning model that classifies messages. 
 
-## Projects:
-This Repository contains the projects I have worked on to complete Udacity "Data Scientist Nanodegree" program:
 
-1. [Finding Donors for CharityML](): will be uploaded later
-2. [Create Your Own Image Classifier](): will be uploaded later
-3. [Creating Customer Segments with Arvato](): will be uploaded later
+### Project Components:
 
-4. [Write A Data Science Blog Post](https://github.com/rawanm/DataScientistNanodegree/tree/master/P4_WriteBlogPost): 
-Pick a dataset, apply CRISP-DM process and choose 3 questions you aspire to answer from the data.
+1. ETL Pipeline: 
+    Loads the data and perform ETL pipline to save it as SQLite database. 
 
-5. [Disaster Response Pipelines](https://github.com/rawanm/DataScientistNanodegree/tree/master/P5_DisasterResponsePipelines):
-Creating a machine learning pipeline to categorize real messages that were sent during disaster events, so that you can send the messages to an appropriate disaster relief agency. 
+2. ML Pipeline: 
+    Builds and trains a machine learning classification model and save it as .pkl file to be used in web app.
 
-6. [Recommendations with IBM](https://github.com/rawanm/DataScientistNanodegree/tree/master/p6_IBMWatsonRecommendation): 
-Analyze the interactions that users have with articles on the IBM Watson Studio platform, and make recommendations to them about new articles you think they will like.
+3. Flask Web App: 
+    A simple web app to classify new messages, code is mostly provided by [Udacity](https://www.udacity.com)
+
+
+### Instructions:
+1. Run the following commands in the project's root directory to set up your database and model.
+
+    - To run ETL pipeline that cleans data and stores in database
+        `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
+    - To run ML pipeline that trains classifier and saves, specify to run gridsearch (true, false)
+        `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl true/fasle`
+
+2. Run the following command in the app's directory to run your web app.
+    `python run.py`
+
+3. Go to http://0.0.0.0:3001/
+
